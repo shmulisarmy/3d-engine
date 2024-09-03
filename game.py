@@ -4,6 +4,7 @@ from settings import screen, WIDTH, HEIGHT, FPS, BLACK, board
 import sys
 
 
+
 class Game:
     running = True
     fullBlockHeight = HEIGHT // len(board)
