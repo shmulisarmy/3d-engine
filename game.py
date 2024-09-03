@@ -7,12 +7,12 @@ import sys
 
 class Game:
     running = True
-    fullBlockHeight = HEIGHT // len(board)
-    fullBlockWidth = WIDTH // len(board[0])
+    full_block_height = HEIGHT // len(board)
+    fullblock_width = WIDTH // len(board[0])
     from player import Player
     plr = Player()
-    plr.gameData["fullBlockHeight"] = fullBlockHeight
-    plr.gameData["fullBlockWidth"] = fullBlockWidth
+    plr.game_data["full_block_height"] = full_block_height
+    plr.game_data["fullblock_width"] = fullblock_width
 
     @staticmethod
     def frame_logic():
