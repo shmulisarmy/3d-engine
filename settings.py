@@ -25,7 +25,12 @@ MAROON = (128, 0, 0)      # Maroon
 LIME = (0, 255, 0)        # Lime (similar to GREEN but can be used to distinguish)
 
 
-colors = [WHITE, RED, BLUE, GREEN, PURPLE, CYAN, MAGENTA, YELLOW, ORANGE, GRAY, DARK_GRAY, LIGHT_GRAY, BROWN, PINK, BEIGE, OLIVE, TEAL, NAVY, MAROON, LIME]
+colors = [WHITE, RED, BLUE, 
+          GREEN, PURPLE, CYAN, 
+          MAGENTA, YELLOW, ORANGE, 
+          GRAY, DARK_GRAY, LIGHT_GRAY, 
+          BROWN, PINK, BEIGE, OLIVE, 
+          TEAL, NAVY, MAROON, LIME]
 
 
 

@@ -23,6 +23,9 @@ class Player:
         self.pressed_keys = set()
     
     def handle_key(self, event):
+        """handles the keyboard events\n
+            by placing them or removing them from pressed_keys
+            wich gets used in update()"""
         if event.type == pygame.KEYDOWN:
             self.pressed_keys.add(event.key)
         elif event.type == pygame.KEYUP:
@@ -31,6 +34,7 @@ class Player:
 
 
     def draw_layer_polygons(self, matrix, this_layers_width, this_layers_height):
+        """gets drawn under the blocks starting from the layer furthest away"""
         if not (isinstance(matrix, list) and isinstance(matrix[0], list) and isinstance(matrix[0][0], int)):
             raise ValueError(f"matrix must be a 2D list of integers but got {type(matrix)}")
         offsetx = (WIDTH-this_layers_width)/2
@@ -56,28 +60,25 @@ class Player:
 
 
                 if y_pos > self.eyeLevel_y * blockHeight:
-                    ... # draw bottom
                     pygame.draw.polygon(screen, shade_color(color), (bottom_right_corner, bottom_left_corner, eyeLevelPoint))
                     # draw line 
                     pygame.draw.line(screen, BLACK, eyeLevelPoint, top_left_corner, 1)
                 else:
-                    ... # draw top
                     pygame.draw.polygon(screen, shade_color(color), (top_right_corner, top_left_corner, eyeLevelPoint))
                     # draw line 
                     pygame.draw.line(screen, BLACK, eyeLevelPoint, bottom_left_corner, 1)
 
 
                 if x_pos > self.eye_level_x * block_width:
-                    ... # draw _right
                     pygame.draw.polygon(screen, shade_color(color), (top_right_corner, bottom_right_corner, eyeLevelPoint))
                     pygame.draw.line(screen, BLACK, eyeLevelPoint, bottom_right_corner, 1)
                 else:
-                    ... # draw _left
                     pygame.draw.polygon(screen, shade_color(color), (top_left_corner, bottom_left_corner, eyeLevelPoint))
                     pygame.draw.line(screen, BLACK, eyeLevelPoint, bottom_left_corner, 1)
 
 
     def draw_layer_blocks(self, matrix, this_layers_width, this_layers_height):
+        """gets drawn over the polygons starting from the layer furthest away"""
         offsetx = (WIDTH-this_layers_width)/2
         offsety = (HEIGHT-this_layers_height)/2
         block_width = this_layers_width // self.viewAreaWidth
@@ -131,6 +132,7 @@ class Player:
 
 
     def update(self):
+        """gets these keys from the handle_key() method"""
         # Handle continuous key presses
         if pygame.K__left in self.pressed_keys:
             self.view_start_x += 1
